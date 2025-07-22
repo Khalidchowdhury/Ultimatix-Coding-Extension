@@ -1,0 +1,393 @@
+{
+    "Basic: Text": {
+        "prefix": "acf_text",
+        "body": [
+            "<?php if ( get_field('${1:text_field}') ) : ?>",
+            "\t<p><?php the_field('${1:text_field}'); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Text Field"
+    },
+    "Basic: Textarea": {
+        "prefix": "acf_textarea",
+        "body": [
+            "<?php if ( get_field('${1:textarea_field}') ) : ?>",
+            "\t<div><?php echo nl2br( get_field('${1:textarea_field}') ); ?></div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Textarea Field"
+    },
+    "Basic: Number": {
+        "prefix": "acf_number",
+        "body": [
+            "<?php if ( get_field('${1:number_field}') ) : ?>",
+            "\t<span><?php the_field('${1:number_field}'); ?></span>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Number Field"
+    },
+    "Basic: Range": {
+        "prefix": "acf_range",
+        "body": [
+            "<?php if ( get_field('${1:range_field}') ) : ?>",
+            "\t<span><?php the_field('${1:range_field}'); ?></span>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Range Field"
+    },
+    "Basic: Email": {
+        "prefix": "acf_email",
+        "body": [
+            "<?php if ( get_field('${1:email_field}') ) : ?>",
+            "\t<a href=\"mailto:<?php the_field('${1:email_field}'); ?>\"><?php the_field('${1:email_field}'); ?></a>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Email Field"
+    },
+    "Basic: URL": {
+        "prefix": "acf_url",
+        "body": [
+            "<?php if ( get_field('${1:url_field}') ) : ?>",
+            "\t<a href=\"<?php the_field('${1:url_field}'); ?>\" target=\"_blank\">Visit Link</a>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: URL Field"
+    },
+    "Basic: Password": {
+        "prefix": "acf_password",
+        "body": [
+            "<?php if ( get_field('${1:password_field}') ) : ?>",
+            "\t<p>Password is set.</p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Password Field"
+    },
+    "Choice: Select": {
+        "prefix": "acf_select",
+        "body": [
+            "<?php if ( get_field('${1:select_field}') ) : ?>",
+            "\t<p>Selected: <?php the_field('${1:select_field}'); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Select Field"
+    },
+    "Choice: Checkbox": {
+        "prefix": "acf_checkbox",
+        "body": [
+            "<?php ",
+            "\\$checkbox_values = get_field('${1:checkbox_field}');",
+            "if ( \\$checkbox_values ) : ?>",
+            "\t<ul>",
+            "\t<?php foreach ( \\$checkbox_values as \\$value ) : ?>",
+            "\t\t<li><?php echo esc_html( \\$value ); ?></li>",
+            "\t<?php endforeach; ?>",
+            "\t</ul>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Checkbox Field"
+    },
+    "Choice: Radio Button": {
+        "prefix": "acf_radio",
+        "body": [
+            "<?php if ( get_field('${1:radio_field}') ) : ?>",
+            "\t<p>Selected: <?php the_field('${1:radio_field}'); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Radio Button Field"
+    },
+    "Choice: Button Group": {
+        "prefix": "acf_button_group",
+        "body": [
+            "<?php if ( get_field('${1:button_group_field}') ) : ?>",
+            "\t<p>Selected: <?php the_field('${1:button_group_field}'); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Button Group Field"
+    },
+    "Choice: True / False": {
+        "prefix": "acf_true_false",
+        "body": [
+            "<?php if ( get_field('${1:true_false_field}') ) : ?>",
+            "\t<p>This is true.</p>",
+            "<?php else : ?>",
+            "\t<p>This is false.</p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: True / False Field"
+    },
+    "Date & Time: Date Picker": {
+        "prefix": "acf_date_picker",
+        "body": [
+            "<?php if ( get_field('${1:date_picker_field}') ) : ?>",
+            "\t<time datetime=\"<?php echo get_field('${1:date_picker_field}'); ?>\"><?php the_field('${1:date_picker_field}'); ?></time>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Date Picker Field"
+    },
+    "Date & Time: Date Time Picker": {
+        "prefix": "acf_datetime_picker",
+        "body": [
+            "<?php if ( get_field('${1:datetime_picker_field}') ) : ?>",
+            "\t<time datetime=\"<?php echo get_field('${1:datetime_picker_field}'); ?>\"><?php the_field('${1:datetime_picker_field}'); ?></time>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Date Time Picker Field"
+    },
+    "Date & Time: Time Picker": {
+        "prefix": "acf_time_picker",
+        "body": [
+            "<?php if ( get_field('${1:time_picker_field}') ) : ?>",
+            "\t<span><?php the_field('${1:time_picker_field}'); ?></span>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Time Picker Field"
+    },
+    "Content: Image": {
+        "prefix": "acf_image",
+        "body": [
+            "<?php ",
+            "\\$image = get_field('${1:image_field}');",
+            "if ( \\$image ) :",
+            "\t\\$url = \\$image['url'];",
+            "\t\\$alt = \\$image['alt'];",
+            "\t\\$size = 'large';",
+            "\t\\$thumb = \\$image['sizes'][ \\$size ];",
+            "?>",
+            "\t<img src=\"<?php echo esc_url(\\$thumb); ?>\" alt=\"<?php echo esc_attr(\\$alt); ?>\" />",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Image Field (Return Format: Array)"
+    },
+    "Content: File": {
+        "prefix": "acf_file",
+        "body": [
+            "<?php ",
+            "\\$file = get_field('${1:file_field}');",
+            "if ( \\$file ) :",
+            "\t\\$url = \\$file['url'];",
+            "\t\\$title = \\$file['title'];",
+            "?>",
+            "\t<a href=\"<?php echo esc_url(\\$url); ?>\" target=\"_blank\" download><?php echo esc_html(\\$title); ?></a>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: File Field"
+    },
+    "Content: Wysiwyg Editor": {
+        "prefix": "acf_wysiwyg",
+        "body": [
+            "<?php if ( get_field('${1:wysiwyg_field}') ) : ?>",
+            "\t<div class=\"wysiwyg-content\">",
+            "\t\t<?php the_field('${1:wysiwyg_field}'); ?>",
+            "\t</div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Wysiwyg Editor Field"
+    },
+    "Content: oEmbed": {
+        "prefix": "acf_oembed",
+        "body": [
+            "<?php if ( get_field('${1:oembed_field}') ) : ?>",
+            "\t<div class=\"embed-container\">",
+            "\t\t<?php the_field('${1:oembed_field}'); ?>",
+            "\t</div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: oEmbed Field"
+    },
+    "Content: Gallery": {
+        "prefix": "acf_gallery",
+        "body": [
+            "<?php ",
+            "\\$images = get_field('${1:gallery_field}');",
+            "if ( \\$images ) : ?>",
+            "\t<div class=\"gallery\">",
+            "\t<?php foreach ( \\$images as \\$image ) : ?>",
+            "\t\t<a href=\"<?php echo esc_url(\\$image['url']); ?>\">",
+            "\t\t\t<img src=\"<?php echo esc_url(\\$image['sizes']['thumbnail']); ?>\" alt=\"<?php echo esc_attr(\\$image['alt']); ?>\" />",
+            "\t\t</a>",
+            "\t<?php endforeach; ?>",
+            "\t</div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Gallery Field"
+    },
+    "Relational: Link": {
+        "prefix": "acf_link",
+        "body": [
+            "<?php ",
+            "\\$link = get_field('${1:link_field}');",
+            "if ( \\$link ) :",
+            "\t\\$link_url = \\$link['url'];",
+            "\t\\$link_title = \\$link['title'];",
+            "\t\\$link_target = \\$link['target'] ? \\$link['target'] : '_self';",
+            "?>",
+            "\t<a href=\"<?php echo esc_url(\\$link_url); ?>\" target=\"<?php echo esc_attr(\\$link_target); ?>\"><?php echo esc_html(\\$link_title); ?></a>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Link Field"
+    },
+    "Relational: Post Object": {
+        "prefix": "acf_post_object",
+        "body": [
+            "<?php",
+            "\\$post_object = get_field('${1:post_object_field}');",
+            "if ( \\$post_object ) :",
+            "\tglobal \\$post;",
+            "\t\\$post = \\$post_object;",
+            "\tsetup_postdata( \\$post );",
+            "?>",
+            "\t<div>",
+            "\t\t<h3><a href=\"<?php the_permalink(); ?>\"><?php the_title(); ?></a></h3>",
+            "\t\t<?php the_excerpt(); ?>",
+            "\t</div>",
+            "<?php ",
+            "\twp_reset_postdata();",
+            "endif; ",
+            "?>"
+        ],
+        "description": "ACF: Post Object Field (Single Post)"
+    },
+    "Relational: Page Link": {
+        "prefix": "acf_page_link",
+        "body": [
+            "<?php if ( get_field('${1:page_link_field}') ) : ?>",
+            "\t<a href=\"<?php the_field('${1:page_link_field}'); ?>\">Visit Page</a>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Page Link Field"
+    },
+    "Relational: Relationship": {
+        "prefix": "acf_relationship",
+        "body": [
+            "<?php",
+            "\\$posts = get_field('${1:relationship_field}');",
+            "if ( \\$posts ) : ?>",
+            "\t<ul>",
+            "\t<?php foreach ( \\$posts as \\$post ) :",
+            "\t\tsetup_postdata(\\$post); ?>",
+            "\t\t<li><a href=\"<?php the_permalink(); ?>\"><?php the_title(); ?></a></li>",
+            "\t<?php endforeach; ?>",
+            "\t</ul>",
+            "\t<?php wp_reset_postdata(); ?>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Relationship Field"
+    },
+    "Relational: Taxonomy": {
+        "prefix": "acf_taxonomy",
+        "body": [
+            "<?php",
+            "\\$term = get_field('${1:taxonomy_field}');",
+            "if ( \\$term ) : ?>",
+            "\t<h3><a href=\"<?php echo esc_url( get_term_link( \\$term ) ); ?>\"><?php echo esc_html( \\$term->name ); ?></a></h3>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Taxonomy Field"
+    },
+    "Relational: User": {
+        "prefix": "acf_user",
+        "body": [
+            "<?php",
+            "\\$user = get_field('${1:user_field}');",
+            "if ( \\$user ) : ?>",
+            "\t<p>User: <?php echo esc_html( \\$user['display_name'] ); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: User Field"
+    },
+    "Layout: Repeater": {
+        "prefix": "acf_repeater",
+        "body": [
+            "<?php if ( have_rows('${1:repeater_field}') ) : ?>",
+            "\t<?php while ( have_rows('${1:repeater_field}') ) : the_row(); ?>",
+            "\t\t<?php the_sub_field('${2:sub_field}'); ?>",
+            "\t<?php endwhile; ?>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Repeater Field"
+    },
+    "Layout: Flexible Content": {
+        "prefix": "acf_flexible",
+        "body": [
+            "<?php if ( have_rows('${1:flexible_content_field}') ) : ?>",
+            "\t<?php while ( have_rows('${1:flexible_content_field}') ) : the_row(); ?>",
+            "\t\t<?php if ( get_row_layout() == '${2:layout_name}' ) : ?>",
+            "\t\t\t<?php the_sub_field('${3:sub_field}'); ?>",
+            "\t\t<?php endif; ?>",
+            "\t<?php endwhile; ?>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Flexible Content Field"
+    },
+    "Layout: Group": {
+        "prefix": "acf_group",
+        "body": [
+            "<?php ",
+            "\\$group = get_field('${1:group_field}');",
+            "if ( \\$group ) : ?>",
+            "\t<div><?php echo esc_html( \\$group['${2:sub_field}'] ); ?></div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Group Field"
+    },
+    "Layout: Clone": {
+        "prefix": "acf_clone",
+        "body": [
+            "<?php // Cloned fields are accessed like normal fields. ?>",
+            "<?php the_field('${1:cloned_field_name}'); ?>"
+        ],
+        "description": "ACF: Clone Field"
+    },
+    "Utility: Google Map": {
+        "prefix": "acf_map",
+        "body": [
+            "<?php ",
+            "\\$location = get_field('${1:map_field}');",
+            "if ( \\$location ) : ?>",
+            "\t<div class=\"acf-map\" data-zoom=\"16\">",
+            "\t\t<div class=\"marker\" data-lat=\"<?php echo esc_attr(\\$location['lat']); ?>\" data-lng=\"<?php echo esc_attr(\\$location['lng']); ?>\"></div>",
+            "\t</div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Google Map Field"
+    },
+    "Utility: Color Picker": {
+        "prefix": "acf_color_picker",
+        "body": [
+            "<?php if ( get_field('${1:color_picker_field}') ) : ?>",
+            "\t<div style=\"background-color: <?php the_field('${1:color_picker_field}'); ?>; padding: 10px;\">Color</div>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Color Picker Field"
+    },
+    "Utility: Message": {
+        "prefix": "acf_message",
+        "body": [
+            "<?php // Message field does not save a value. It's for display in the admin only. ?>"
+        ],
+        "description": "ACF: Message Field"
+    },
+    "Utility: Accordion": {
+        "prefix": "acf_accordion",
+        "body": [
+            "<?php // Accordion field is for organizing the admin interface. No template code needed. ?>"
+        ],
+        "description": "ACF: Accordion Field"
+    },
+    "Utility: Tab": {
+        "prefix": "acf_tab",
+        "body": [
+            "<?php // Tab field is for organizing the admin interface. No template code needed. ?>"
+        ],
+        "description": "ACF: Tab Field"
+    },
+    "Utility: Hidden": {
+        "prefix": "acf_hidden",
+        "body": [
+            "<?php if( get_field('${1:hidden_field}') ): ?>",
+            "\t<p>Hidden value: <?php the_field('${1:hidden_field}'); ?></p>",
+            "<?php endif; ?>"
+        ],
+        "description": "ACF: Hidden Field (Rarely used in templates)"
+    }
+}

@@ -1,8 +1,10 @@
 {
   "name": "ultimatix-coding",
   "displayName": "Ultimatix Coding",
-  "description": "An Ultimatix Coding Support Extension with ACF Snippets",
-  "version": "0.1.0",
+  "description": "An Ultimatix Coding Support Extension with ACF and WordPress Snippets",
+  "icon": "assets/icon.png",
+  "version": "1.0.0",
+  "publisher": "ultimatix-coding",
   "engines": {
     "vscode": "^1.85.0"
   },

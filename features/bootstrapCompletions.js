@@ -58,6 +58,57 @@ function getBootstrapComponentSnippets() {
         "BS: Tooltip": { prefix: "bs-tooltip", detail: "Component", body: "<button type=\"button\" class=\"btn btn-secondary\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"${1:Tooltip}\">Tooltip</button>", documentation: "Tooltip component." },
         "BS: Flexbox Container": { prefix: "bs-flex", detail: "Utility", body: "<div class=\"d-flex justify-content-${1|start,end,center,between,around|} align-items-${2|start,end,center,baseline,stretch|}\">\n\t${3}\n</div>", documentation: "Flexbox container." },
         "BS: Spacing": { prefix: "bs-spacing", detail: "Utility", body: "${1|m,p|}${2|t,b,s,e,x,y,|} - ${3|0,1,2,3,4,5,auto|}", documentation: "Margin and padding utility." },
+        "BS: HTML5 Boilerplate": {
+            prefix: "bs5",
+            detail: "Bootstrap Setup",
+            documentation: "Creates a complete HTML5 boilerplate with Bootstrap 5 CSS and JS.",
+            body: [
+                '<!doctype html>',
+                '<html lang="en">',
+                '<head>',
+                '  <!-- Required meta tags -->',
+                '  <meta charset="utf-8">',
+                '  <meta name="viewport" content="width=device-width, initial-scale=1">',
+                '  <title>${1:Bootstrap Boilerplate}</title>',
+                '  <!-- Bootstrap CSS -->',
+                '  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">',
+                '</head>',
+                '<body>',
+                '  <h1>${2:Hello, world!}</h1>',
+                '\n\t${0}\n',
+                '  <!-- Optional JavaScript; choose one of the two! -->',
+                '\n  <!-- Option 1: Bootstrap Bundle with Popper -->',
+                '  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>',
+                '\n  <!-- Option 2: Separate Popper and Bootstrap JS -->',
+                '  <!--',
+                '  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>',
+                '  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>',
+                '  -->',
+                '</body>',
+                '</html>'
+            ].join('\n')
+        },
+        "BS: CSS Link": {
+            prefix: "bs-css",
+            detail: "Bootstrap Setup",
+            documentation: "Inserts the Bootstrap 5 CSS CDN link.",
+            body: '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">'
+        },
+        "BS: JS Links (Separate)": {
+            prefix: "bs-js-separate",
+            detail: "Bootstrap Setup",
+            documentation: "Inserts separate Popper and Bootstrap JS CDN links.",
+            body: [
+                '<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>',
+                '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>'
+            ].join('\n')
+        },
+        "BS: JS Link (Bundle)": {
+            prefix: "bs-js-bundle",
+            detail: "Bootstrap Setup",
+            documentation: "Inserts the Bootstrap 5 JS Bundle CDN link (includes Popper).",
+            body: '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>'
+        },
     };
     return Object.entries(snippetsData).map(([label, data]) => createSnippetItem({ label, ...data }));
 }

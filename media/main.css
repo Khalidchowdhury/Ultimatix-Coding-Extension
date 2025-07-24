@@ -1,0 +1,71 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--vscode-sideBar-background);
+    color: var(--vscode-editor-foreground);
+    font-family: var(--vscode-font-family);
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#message-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: var(--vscode-button-background);
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.assistant-message {
+    background-color: var(--vscode-editorWidget-background);
+    align-self: flex-start;
+}
+
+#input-area {
+    display: flex;
+    border-top: 1px solid var(--vscode-sideBar-border);
+    padding-top: 10px;
+}
+
+#prompt-input {
+    flex-grow: 1;
+    background: transparent;
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 5px;
+    color: var(--vscode-input-foreground);
+    padding: 8px;
+    resize: none;
+}
+
+#submit-button {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 5px;
+    padding: 0 12px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+#submit-button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+}

@@ -31,6 +31,12 @@ function getAcfSnippets() {
             body: "<?php ${1} ?>",
             documentation: "**PHP Opening and Closing Tag**\n\nQuickly inserts a standard PHP tag pair and places the cursor inside."
         },
+        "Comments: PHP Block": {
+            prefix: "php-comment",
+            detail: "PHP Comment Snippet",
+            body: "/*\n * \n * ${1:PHP Comments}\n * \n */",
+            documentation: "**PHP Block Comment**\n\nCreates a standard multi-line comment block for PHP code."
+        },
         "eg: echo get_field": {
             prefix: "eg",
             detail: "ACF Snippet",

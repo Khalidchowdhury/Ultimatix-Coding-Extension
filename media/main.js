@@ -1,3 +1,4 @@
+/* eslint-env browser, vscode */
 
 (function () {
     const vscode = acquireVsCodeApi();
@@ -33,10 +34,12 @@
         messageList.scrollTop = messageList.scrollHeight;
     }
 
-    function updateLastMessage(text) {
+    // --- The Correction: This function is now INSIDE the main scope ---
+    function updateLastMessage(htmlContent) {
         const lastMessage = messageList.lastChild;
         if (lastMessage && lastMessage.classList.contains('assistant-message')) {
-            lastMessage.textContent = text;
+            // Use innerHTML to render Markdown
+            lastMessage.innerHTML = htmlContent;
         }
     }
 
@@ -50,7 +53,8 @@
                 updateLastMessage(message.value);
                 break;
             case 'showError':
-                updateLastMessage(`Error: ${message.value}`);
+                // For errors, we can use textContent to avoid rendering potentially unsafe HTML
+                updateLastMessage(`<p style="color: var(--vscode-errorForeground);">${message.value}</p>`);
                 break;
         }
     });

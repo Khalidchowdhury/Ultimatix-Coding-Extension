@@ -26,6 +26,9 @@ A powerful Visual Studio Code extension for WordPress developers — packed with
 🔹 Rapid HTML development with class autocompletion  
 🔹 Layout, display, spacing, colors, positioning, and more
 
+✅ **550+ CSS Properties and 1200+ Values**  
+
+
 ✅ ** CPT & Taxonomy Generator**  
 🔹 Instantly generate Custom Post Type code  
 🔹 Includes hierarchical and non-hierarchical taxonomies  

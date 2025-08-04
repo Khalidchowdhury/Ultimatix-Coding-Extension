@@ -2,7 +2,7 @@
   "name": "ultimatix-coding",
   "displayName": "Ultimatix Coding",
   "description": "A comprehensive support extension with snippets and an AI assistant for WordPress, ACF, Bootstrap, and CSS development.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "publisher": "ultimatix-coding",
   "icon": "assets/icon.png",
   "engines": {
@@ -64,6 +64,10 @@
     "axios": "^1.11.0",
     "cross-fetch": "^4.1.0",
     "markdown-it": "^14.1.0",
-    "node-fetch": "^2.7.0"
+    "markdown-it-highlightjs": "^4.2.0",
+    "node-fetch": "^2.7.0",
+    "undici": "^7.13.0",
+    "highlight.js": "^11.9.0",
+    "form-data": "^4.0.0"
   }
 }

@@ -60,6 +60,11 @@
         "label": "Ultimate Theme 2",
         "uiTheme": "vs-dark",
         "path": "./themes/ultimate-theme-2.json"
+      },
+      {
+        "label": "macOS Modern Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/macos-modern-dark.json"
       }
     ]
   },

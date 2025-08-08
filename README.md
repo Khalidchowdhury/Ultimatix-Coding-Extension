@@ -35,3 +35,4 @@ A powerful Visual Studio Code extension for WordPress developers — packed with
 🔹 Fully WordPress-standard and ready for production
 
 
+include a good theme

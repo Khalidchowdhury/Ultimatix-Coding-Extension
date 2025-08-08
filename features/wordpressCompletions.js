@@ -1,7 +1,6 @@
 const vscode = require('vscode');
 
 /**
- * একটি সুন্দর এবং তথ্যপূর্ণ ফাংশন সাজেশন আইটেম তৈরি করে।
  * @param {object} options
  * @returns {vscode.CompletionItem}
  */

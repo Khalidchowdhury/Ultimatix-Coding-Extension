@@ -49,7 +49,19 @@
           "contextualTitle": "Ultimatix AI"
         }
       ]
-    }
+    },
+    "themes": [
+      {
+        "label": "Ultimate Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ultimate-theme.json"
+      },
+      {
+        "label": "Ultimate Theme 2",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ultimate-theme-2.json"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",

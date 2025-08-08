@@ -1,9 +1,9 @@
 const vscode = require('vscode');
 const fetch = require('node-fetch');
 const md = require('markdown-it')({
-  html: true, // Markdown এর ভেতরে HTML ট্যাগকে অনুমতি দেওয়া
-  linkify: true, // URL কে লিঙ্কে পরিণত করা
-  typographer: true, // সুন্দর টাইপোগ্রাফির জন্য
+  html: true,
+  linkify: true,
+  typographer: true,
 });
 
 class AiAssistantViewProvider {
@@ -35,10 +35,10 @@ class AiAssistantViewProvider {
   }
 
   async _askOpenRouter(userInput) {
-    const apiKey = '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';
+    const apiKey = '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';
 
-    if (!apiKey) {
-      return '❌ **Error:** API Key not found inside the code.';
+    if (!apiKey || apiKey === 'YOUR_NEW_API_KEY_HERE') {
+      return '❌ **Error:** API Key is not set in the code. Please replace "YOUR_NEW_API_KEY_HERE" with your new key from OpenRouter.';
     }
 
     const messages = [];
@@ -71,10 +71,7 @@ class AiAssistantViewProvider {
       }
 
       const data = await res.json();
-
-      // --- সঠিক সিনট্যাক্স ---
       return data.choices?.[0]?.message?.content || '❌ AI থেকে কোনো উত্তর পাওয়া যায়নি।';
-
     } catch (err) {
       console.error(err);
       return `❌ **Error:** ${err.message}`;
@@ -115,27 +112,8 @@ class AiAssistantViewProvider {
           .loading { text-align: center; color: #888; }
           
           pre { position: relative; }
-          pre code.hljs {
-            display: block;
-            overflow-x: auto;
-            padding: 1em;
-            background: #1e1e1e;
-            border-radius: 5px;
-            border: 1px solid #444;
-          }
-          .copy-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #3c3c3c;
-            color: #ccc;
-            border: none;
-            padding: 3px 8px;
-            border-radius: 3px;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.2s;
-          }
+          pre code.hljs { display: block; overflow-x: auto; padding: 1em; background: #1e1e1e; border-radius: 5px; border: 1px solid #444; }
+          .copy-btn { position: absolute; top: 5px; right: 5px; background: #3c3c3c; color: #ccc; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; opacity: 0.5; transition: opacity 0.2s; }
           pre:hover .copy-btn { opacity: 1; }
         </style>
       </head>
@@ -163,10 +141,7 @@ class AiAssistantViewProvider {
 
           function appendMessage(htmlContent, className, isLoading = false) {
               const existingLoading = chatContainer.querySelector('.loading');
-              if (existingLoading) {
-                  existingLoading.remove();
-              }
-              
+              if (existingLoading) { existingLoading.remove(); }
               if (!htmlContent && !isLoading) return;
 
               const messageContainer = document.createElement('div');
@@ -179,8 +154,7 @@ class AiAssistantViewProvider {
               bubble.querySelectorAll('pre code').forEach((block) => {
                 hljs.highlightElement(block);
                 const pre = block.parentElement;
-                if (pre.querySelector('.copy-btn')) return; // যদি বাটন আগে থেকেই থাকে
-
+                if (pre.querySelector('.copy-btn')) return;
                 const copyButton = document.createElement('button');
                 copyButton.className = 'copy-btn';
                 copyButton.textContent = 'Copy';
@@ -192,9 +166,7 @@ class AiAssistantViewProvider {
                 pre.appendChild(copyButton);
               });
               
-              if(isLoading) {
-                  messageContainer.classList.add('loading');
-              }
+              if(isLoading) { messageContainer.classList.add('loading'); }
               
               messageContainer.appendChild(bubble);
               chatContainer.appendChild(messageContainer);
@@ -205,7 +177,7 @@ class AiAssistantViewProvider {
             const question = questionInput.value.trim();
             if (!question && !fileData) return;
             if (question) {
-                appendMessage('<p>' + question.replace(/</g, "<").replace(/>/g, ">") + '</p>', 'user-message');
+                appendMessage('<p>' + question.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</p>', 'user-message');
             }
             const messagePayload = { question, fileData };
             vscode.postMessage({ type: 'ask', value: messagePayload });
@@ -226,9 +198,7 @@ class AiAssistantViewProvider {
           });
           window.addEventListener('message', event => {
             const message = event.data;
-            if (message.type === 'aiResponse') {
-              appendMessage(message.value, 'ai-message');
-            }
+            if (message.type === 'aiResponse') { appendMessage(message.value, 'ai-message'); }
           });
           
           let fileData = null;
@@ -271,3 +241,5 @@ function getNonce() {
 module.exports = {
   AiAssistantViewProvider,
 };
+
+

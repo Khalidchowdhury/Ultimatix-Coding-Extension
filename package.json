@@ -2,7 +2,7 @@
   "name": "ultimatix-coding",
   "displayName": "Ultimatix Coding",
   "description": "A comprehensive support extension with snippets and an AI assistant for WordPress, ACF, Bootstrap, and CSS development.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "publisher": "ultimatix-coding",
   "icon": "assets/icon.png",
   "engines": {
@@ -19,6 +19,10 @@
     "onLanguage:css",
     "onView:ultimatix.aiAssistantView"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git"
+  },
   "main": "./extension.js",
   "contributes": {
     "commands": [
@@ -55,19 +59,13 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.102.0",
+    "@types/vscode": "^1.85.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.25.1"
   },
   "dependencies": {
-    "axios": "^1.11.0",
-    "cross-fetch": "^4.1.0",
     "markdown-it": "^14.1.0",
-    "markdown-it-highlightjs": "^4.2.0",
-    "node-fetch": "^2.7.0",
-    "undici": "^7.13.0",
-    "highlight.js": "^11.9.0",
-    "form-data": "^4.0.0"
+    "node-fetch": "^2.7.0"
   }
 }
